@@ -1,12 +1,16 @@
-import state.Canvas;
-import state.EraserTool;
-import state.abuse.Stopwatch;
+import iterator.BrowseHistory;
 
 public class Main {
     public static void main(String[] args) {
-        var stopwatch = new Stopwatch();
-        stopwatch.click();
-        stopwatch.click();
-        stopwatch.click();
+        var history = new BrowseHistory();
+        history.push("a");
+        history.push("b");
+        history.push("c");
+
+        var iterator = history.createIterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.current());
+            iterator.next();
+        }
     }
 }
