@@ -1,20 +1,13 @@
-import structural.composite.Group;
-import structural.composite.Shape;
+import structural.adapter.CaramelFilter;
+import structural.adapter.Image;
+import structural.adapter.ImageView;
+import structural.adapter.VividFilter;
+import structural.adapter.avaFilters.Caramel;
 
 public class Main {
     public static void main(String[] args) {
-        var group1 = new Group();
-        group1.add(new Shape());
-        group1.add(new Shape());
-
-        var group2 = new Group();
-        group2.add(new Shape());
-        group2.add(new Shape());
-
-        var group = new Group();
-        group.add(group1);
-        group.add(group2);
-        group.render();
-        group.move();
+        var imageView = new ImageView(new Image());
+        imageView.apply(new VividFilter());
+        imageView.apply(new CaramelFilter(new Caramel()));
     }
 }
