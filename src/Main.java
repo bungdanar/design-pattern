@@ -1,10 +1,9 @@
-import structural.flyweight.PointIconFactory;
-import structural.flyweight.PointService;
+import structural.bridge.RemoteControl;
+import structural.bridge.SonyTV;
 
 public class Main {
     public static void main(String[] args) {
-        var service = new PointService(new PointIconFactory());
-        for (var point : service.getPoints())
-            point.draw();
+        var remoteControl = new RemoteControl(new SonyTV());
+        remoteControl.turnOn();
     }
 }
