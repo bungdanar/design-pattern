@@ -1,8 +1,10 @@
-import structural.facade.NotificationService;
+import structural.flyweight.PointIconFactory;
+import structural.flyweight.PointService;
 
 public class Main {
     public static void main(String[] args) {
-        var service = new NotificationService();
-        service.send("Hello World", "target");
+        var service = new PointService(new PointIconFactory());
+        for (var point : service.getPoints())
+            point.draw();
     }
 }
