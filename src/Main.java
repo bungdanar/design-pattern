@@ -1,13 +1,14 @@
-import structural.adapter.CaramelFilter;
-import structural.adapter.Image;
-import structural.adapter.ImageView;
-import structural.adapter.VividFilter;
-import structural.adapter.avaFilters.Caramel;
+import structural.decorator.CloudStream;
+import structural.decorator.CompressedCloudStream;
+import structural.decorator.EncryptedCloudStream;
+import structural.decorator.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        var imageView = new ImageView(new Image());
-        imageView.apply(new VividFilter());
-        imageView.apply(new CaramelFilter(new Caramel()));
+        storeCreditCard(new CompressedCloudStream(new EncryptedCloudStream(new CloudStream())));
+    }
+
+    public static void storeCreditCard(Stream stream) {
+        stream.write("1234-1234-1234-1234");
     }
 }
