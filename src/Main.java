@@ -1,9 +1,13 @@
-import structural.bridge.RemoteControl;
-import structural.bridge.SonyTV;
+import structural.proxy.Library;
+import structural.proxy.LoggingEbookProxy;
 
 public class Main {
     public static void main(String[] args) {
-        var remoteControl = new RemoteControl(new SonyTV());
-        remoteControl.turnOn();
+        var library = new Library();
+        String[] fileNames = {"a", "b", "c"};
+        for (var fileName : fileNames)
+            library.add(new LoggingEbookProxy(fileName));
+
+        library.openEbook("a");
     }
 }
