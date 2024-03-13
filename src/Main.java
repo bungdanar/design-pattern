@@ -1,13 +1,11 @@
-import creational.prototype.Circle;
+import creational.singleton.ConfigManager;
 
 public class Main {
     public static void main(String[] args) {
-        var circle = new Circle();
-        circle.setRadius(10);
+        var manager = ConfigManager.getInstance();
+        manager.set("name", "bung");
 
-        var circle2 = (Circle) circle.clone();
-
-        System.out.println(circle.getRadius());
-        System.out.println(circle2.getRadius());
+        var other = ConfigManager.getInstance();
+        System.out.println(other.get("name"));
     }
 }
