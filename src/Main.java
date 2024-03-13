@@ -1,13 +1,13 @@
-import structural.proxy.Library;
-import structural.proxy.LoggingEbookProxy;
+import creational.prototype.Circle;
 
 public class Main {
     public static void main(String[] args) {
-        var library = new Library();
-        String[] fileNames = {"a", "b", "c"};
-        for (var fileName : fileNames)
-            library.add(new LoggingEbookProxy(fileName));
+        var circle = new Circle();
+        circle.setRadius(10);
 
-        library.openEbook("a");
+        var circle2 = (Circle) circle.clone();
+
+        System.out.println(circle.getRadius());
+        System.out.println(circle2.getRadius());
     }
 }
